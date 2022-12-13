@@ -1,38 +1,195 @@
-.App {
-  text-align: center;
+@import url("http://fonts.googleapis.com/css?family=Lato&display=swap");
+
+:root {
+    --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0.24);
+    --plus: #2ecc71;
+    --minus: #c0392b;
+    --color-primary: #4db5ff;
+    --color-primary-variant: rgba(77, 181, 255, 0.4);
+    --color-white: #fff;
+    --color-light: hsla(0, 0%, 100%, 0.6);
+    --color-dark-grey: hsla(210, 8%, 45%, 0.325);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    /* background-color: #f7f7f7; */
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.container {
+    margin: 30px auto;
+    width: 350px;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+    letter-spacing: 1px;
+    margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h3 {
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 10px;
+    margin: 40px 0 10px;
+}
+
+h4 {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.inc-exp-container {
+    /* background-color: white; */
+    background: var(--color-dark-grey);
+    border: 2px solid var(--color-primary-variant);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.inc-exp-container > div {
+    flex: 1;
+    text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+    border-right: 1px solid #dedede;
+}
+
+.money {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin: 5px 0;
+}
+
+.money.plus {
+    color: var(--plus);
+}
+
+.money.minus {
+    color: var(--minus);
+}
+
+label {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+input[type="text"],
+input[type="number"] {
+    border: 2px solid var(--color-primary-variant);
+    border-radius: 5px;
+    display: block;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+    background: var(--color-dark-grey);
+    color: white;
+}
+
+.btn {
+    background-color: #9c88ff;
+    box-shadow: var(--box-shadow);
+    color: white;
+    border: 0;
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 30px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:focus,
+.delete-btn:focus {
+    outline: 0;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.list li {
+    background-color: white;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: var(--box-shadow);
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 5px;
+}
+
+.list > li.plus {
+    /* border-right: 5px solid var(--plus); */
+    background: var(--color-dark-grey);
+    border: 2px solid var(--plus);
+    color: white;
+    /* white-space: pre-wrap;
+    word-wrap: break-word; */
+}
+
+.list > li.minus {
+    /* border-right: 5px solid var(--minus); */
+    background: var(--color-dark-grey);
+    border: 2px solid var(--minus);
+    color: white;
+    /* white-space: pre-wrap;
+    word-wrap: break-word; */
+}
+
+.delete-btn {
+    background-color: #e7433c;
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 2px 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    margin-left: -5px;
+}
+
+.list li:hover .delete-btn {
+    opacity: 1;
+}
+
+/* @media screen and (max-width: 1920px) {
+    .container {
+        width: 50%;
+    }
+} */
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 70%;
+    }
+}
+@media screen and (max-width: 600px) {
+    .container {
+        width: 80%;
+    }
 }
